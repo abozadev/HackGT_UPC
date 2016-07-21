@@ -69,6 +69,29 @@
                 android:layout_marginTop="20dp"/>
 
             <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Lunch"
+                    android:id="@+id/textView"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Diner"
+                    android:id="@+id/textView2"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -87,6 +110,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true">
 
+                </Spinner>
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:entries="@array/times"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
                 </Spinner>
 
             </RelativeLayout>
@@ -111,6 +142,14 @@
 
                 </Spinner>
 
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:entries="@array/times"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
+                </Spinner>
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -131,6 +170,14 @@
                     android:entries="@array/times"
                     android:layout_alignParentRight="true">
 
+                </Spinner>
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:entries="@array/times"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
                 </Spinner>
 
             </RelativeLayout>
@@ -155,6 +202,14 @@
 
                 </Spinner>
 
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:entries="@array/times"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
+                </Spinner>
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -175,6 +230,14 @@
                     android:entries="@array/times"
                     android:layout_alignParentRight="true">
 
+                </Spinner>
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:entries="@array/times"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
                 </Spinner>
 
             </RelativeLayout>
@@ -199,6 +262,14 @@
 
                 </Spinner>
 
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:entries="@array/times"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
+                </Spinner>
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -219,6 +290,14 @@
                     android:entries="@array/times"
                     android:layout_alignParentRight="true">
 
+                </Spinner>
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:entries="@array/times"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
                 </Spinner>
 
             </RelativeLayout>
