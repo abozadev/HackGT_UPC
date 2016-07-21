@@ -1,6 +1,5 @@
 package com.example.jordi.food.ActivityForResult;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -15,16 +14,16 @@ import com.example.jordi.food.R;
 
 import java.util.ArrayList;
 
-public class ManageLikes extends ActionBarActivity {
+public class ManageDislikes extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manage_likes);
+        setContentView(R.layout.activity_manage_dislikes);
 
-        final EditText editText = (EditText) findViewById(R.id.addLike);
-        Button addButton = (Button) findViewById(R.id.buttonAddLike);
-        ListView listView = (ListView) findViewById(R.id.manageLikeList);
+        final EditText editText = (EditText) findViewById(R.id.addDislike);
+        Button addButton = (Button) findViewById(R.id.buttonAddDislike);
+        ListView listView = (ListView) findViewById(R.id.manageDisLikeList);
         final ArrayList<String> listItems = new ArrayList<String>();
         listItems.add("First Item - added on Activity Create");
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -47,18 +46,14 @@ public class ManageLikes extends ActionBarActivity {
             }
         });
 
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
             @Override
-            public boolean onItemLongClick(AdapterView<?> av, View v, int pos, long id)
-            {
+            public boolean onItemLongClick(AdapterView<?> av, View v, int pos, long id) {
                 listItems.remove(pos);
                 adapter.notifyDataSetChanged();
                 return false;
             }
         });
     }
-
-
-
 }

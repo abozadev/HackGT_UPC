@@ -20,6 +20,7 @@
         <item>+1h</item>
     </string-array>
     <string name="title_activity_manage_likes">ManageLikes</string>
+    <string name="title_activity_manage_dislikes">ManageDislikes</string>
 
 
 </resources>
