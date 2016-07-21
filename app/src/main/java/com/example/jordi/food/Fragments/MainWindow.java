@@ -7,10 +7,15 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.jordi.food.Adapters.AdapterEat;
+import com.example.jordi.food.Adapters.Eat;
 import com.example.jordi.food.R;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,6 +33,9 @@ public class MainWindow extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     private TextView textDate;
+    private AdapterEat adapterEat;
+    private ArrayList<Eat> listEat;
+    private ListView listView;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -74,14 +82,18 @@ public class MainWindow extends Fragment {
 
     private String createDate () {
         Calendar calendar = Calendar.getInstance();
-        //String[]
-        return "" + calendar.get(Calendar.DAY_OF_WEEK) + ", " + calendar.get(Calendar.DAY_OF_MONTH) +
+        String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+        String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "Septembet",
+                "October", "November", "December"};
+        return "" + daysOfWeek[calendar.get(Calendar.DAY_OF_WEEK)] + ", " + months[calendar.get(Calendar.DAY_OF_MONTH)] +
                 " " + calendar.get(Calendar.MONTH) + " " + calendar.get(Calendar.YEAR);
     }
 
     private void initVariables (View view) {
         textDate = (TextView) view.findViewById(R.id.date);
         textDate.setText(createDate());
+        adapterEat = new AdapterEat(this.getActivity(), listEat);
+        listView = (ListView) view.findViewById(R.id.listMainMenu);
     }
 
     @Override
