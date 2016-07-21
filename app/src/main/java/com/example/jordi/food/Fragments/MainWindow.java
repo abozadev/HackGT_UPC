@@ -7,8 +7,12 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.jordi.food.R;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,10 +23,11 @@ import com.example.jordi.food.R;
  * create an instance of this fragment.
  */
 public class MainWindow extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private TextView textDate;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -59,6 +64,24 @@ public class MainWindow extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initVariables(view);
+    }
+
+    private String createDate () {
+        Calendar calendar = Calendar.getInstance();
+        //String[]
+        return "" + calendar.get(Calendar.DAY_OF_WEEK) + ", " + calendar.get(Calendar.DAY_OF_MONTH) +
+                " " + calendar.get(Calendar.MONTH) + " " + calendar.get(Calendar.YEAR);
+    }
+
+    private void initVariables (View view) {
+        textDate = (TextView) view.findViewById(R.id.date);
+        textDate.setText(createDate());
     }
 
     @Override
