@@ -33,6 +33,7 @@ public class MainWindow extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private int offsetDay;
 
     private TextView textDate;
     private AdapterEat adapterEat;
@@ -55,7 +56,7 @@ public class MainWindow extends Fragment {
      */
     // TODO: Rename and change types and number of parameters
     public static MainWindow newInstance(String param1, String param2) {
-        MainWindow fragment = new MainWindow();
+        MainWindow fragment = new MainWindow(0);
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -63,8 +64,9 @@ public class MainWindow extends Fragment {
         return fragment;
     }
 
-    public MainWindow() {
+    public MainWindow(int offsetDay) {
         // Required empty public constructor
+        this.offsetDay = offsetDay;
     }
 
     @Override
@@ -84,6 +86,7 @@ public class MainWindow extends Fragment {
 
     private String createDate () {
         Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(calendar.getTimeInMillis() + offsetDay*24*3600*1000); // adding one day, if necessary
         String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
         String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "Septembet",
                 "October", "November", "December"};

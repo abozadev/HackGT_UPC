@@ -20,11 +20,14 @@
             android:name=".Info"
             android:label="@string/title_activity_info" >
         </activity>
+        <activity
             android:name=".ActivityForResult.ManageLikes"
-            android:label="@string/title_activity_manage_likes" />
+            android:label="@string/title_activity_manage_likes" >
+        </activity>
         <activity
             android:name=".ActivityForResult.ManageDislikes"
-            android:label="@string/title_activity_manage_dislikes"></activity>
+            android:label="@string/title_activity_manage_dislikes">
+        </activity>
     </application>
 
 </manifest>
