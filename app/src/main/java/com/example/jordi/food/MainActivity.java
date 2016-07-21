@@ -16,11 +16,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.jordi.food.Fragments.MainWindow;
+import com.example.jordi.food.Fragments.ProfileFragment;
 
 import java.util.ArrayList;
 
 
-public class MainActivity extends ActionBarActivity implements MainWindow.OnFragmentInteractionListener{
+public class MainActivity extends ActionBarActivity implements MainWindow.OnFragmentInteractionListener,
+    ProfileFragment.OnFragmentInteractionListener {
 
     private DrawerLayout mDrawerLayout;
     private ArrayList<String> arrayMenu = new ArrayList<String>();
@@ -42,6 +44,7 @@ public class MainActivity extends ActionBarActivity implements MainWindow.OnFrag
         // Create a new fragment and specify the planet to show based on position
         switch (position) {
             case 0:
+                fragment = new ProfileFragment();
                 break;
             case 1:
                 fragment = new MainWindow(); // today
