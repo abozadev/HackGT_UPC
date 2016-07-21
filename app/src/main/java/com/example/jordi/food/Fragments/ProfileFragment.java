@@ -2,6 +2,8 @@ package com.example.jordi.food.Fragments;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,8 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
+import com.example.jordi.food.ActivityForResult.ManageLikes;
 import com.example.jordi.food.R;
 
 /**
@@ -27,11 +31,14 @@ public class ProfileFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    static final int MANAGE_LIKES_REQUEST = 1;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private SharedPreferences sharedPref;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -69,7 +76,30 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        Button button = (Button) view.findViewById(R.id.buttonManageLike);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                //TODO Manage like
+                Intent intent = new Intent(getActivity(), ManageLikes.class);
+                startActivityForResult(intent, MANAGE_LIKES_REQUEST);
+            }
+        });
+
+        Button button2 = (Button) view.findViewById(R.id.buttonManageDislike);
+        button2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                //TODO Manage dislike
+            }
+        });
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -110,4 +140,6 @@ public class ProfileFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+
 }
