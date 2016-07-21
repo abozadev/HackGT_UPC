@@ -1,5 +1,6 @@
 package com.example.jordi.food;
 
+import com.example.jordi.food.Adapters.DailySchedule;
 import com.example.jordi.food.Adapters.Dish;
 import com.example.jordi.food.Adapters.Eat;
 import com.example.jordi.food.Adapters.Ingredient;
@@ -14,11 +15,14 @@ import java.util.TreeMap;
 public class DataForAll {
     public static ArrayList<Eat> demoMenuList = new ArrayList<>(); // not necessary right now
 
-    public static TreeMap<Integer, ArrayList<Eat>> weeklySchedule = new TreeMap<>();
+    public static TreeMap<Integer, DailySchedule> weeklySchedule = new TreeMap<>();
 
     public static String breakfast = "Breakfast";
     public static String lunch = "Lunch";
     public static String dinner = "Dinner";
+    public static String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+    public static String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "Septembet",
+            "October", "November", "December"};
 
     public static Dish selectedDish;
 
@@ -28,13 +32,13 @@ public class DataForAll {
         DataForAll.demoMenuList.add(new Eat("Lunch", "Soup", "Chicken", "Apple", "", "", ""));
         DataForAll.demoMenuList.add(new Eat("Dinner", "Rice", "Fish", "Orange", "", "", ""));
         */
-        ArrayList<Eat> day1 = new ArrayList<>();
-        ArrayList<Eat> day2 = new ArrayList<>();
-        ArrayList<Eat> day3 = new ArrayList<>();
-        ArrayList<Eat> day4 = new ArrayList<>();
-        ArrayList<Eat> day5 = new ArrayList<>();
-        ArrayList<Eat> day6 = new ArrayList<>();
-        ArrayList<Eat> day7 = new ArrayList<>();
+        DailySchedule day1 = new DailySchedule();
+        DailySchedule day2 = new DailySchedule();
+        DailySchedule day3 = new DailySchedule();
+        DailySchedule day4 = new DailySchedule();
+        DailySchedule day5 = new DailySchedule();
+        DailySchedule day6 = new DailySchedule();
+        DailySchedule day7 = new DailySchedule();
 
         // Breakfast
         ArrayList<Ingredient> ingredientsMilk = new ArrayList<>();
@@ -92,29 +96,29 @@ public class DataForAll {
         ingredientsYogurt.add(new Ingredient("yogurt", 0.2));
         Dish yogurt = new Dish("Yougurt", "", 0.3, ingredientsYogurt, "");
 
-        day1.add(new Eat(DataForAll.breakfast, milk, cookies, orangeJuice));
-        day2.add(new Eat(DataForAll.breakfast, milk, cookies, appleJuice));
-        day3.add(new Eat(DataForAll.breakfast, milk, cookies, appleJuice));
-        day4.add(new Eat(DataForAll.breakfast, milk, cookies, orangeJuice));
-        day5.add(new Eat(DataForAll.breakfast, milk, cookies, appleJuice));
-        day6.add(new Eat(DataForAll.breakfast, milk, cookies, orangeJuice));
-        day7.add(new Eat(DataForAll.breakfast, milk, cookies, orangeJuice));
+        day1.setBreakfast(new Eat(DataForAll.breakfast, milk, cookies, orangeJuice));
+        day2.setBreakfast(new Eat(DataForAll.breakfast, milk, cookies, appleJuice));
+        day3.setBreakfast(new Eat(DataForAll.breakfast, milk, cookies, appleJuice));
+        day4.setBreakfast(new Eat(DataForAll.breakfast, milk, cookies, orangeJuice));
+        day5.setBreakfast(new Eat(DataForAll.breakfast, milk, cookies, appleJuice));
+        day6.setBreakfast(new Eat(DataForAll.breakfast, milk, cookies, orangeJuice));
+        day7.setBreakfast(new Eat(DataForAll.breakfast, milk, cookies, orangeJuice));
 
-        day1.add(new Eat(DataForAll.lunch, soup, hamburguer, apple));
-        day2.add(new Eat(DataForAll.lunch, fideua, hamburguer, yogurt));
-        day3.add(new Eat(DataForAll.lunch, soup, omelet, yogurt));
-        day4.add(new Eat(DataForAll.lunch, fideua, omelet, apple));
-        day5.add(new Eat(DataForAll.lunch, soup, omelet, apple));
-        day6.add(new Eat(DataForAll.lunch, cousCous, hamburguer, yogurt));
-        day7.add(new Eat(DataForAll.lunch, fideua, omelet, apple));
+        day1.setLunch(new Eat(DataForAll.lunch, soup, hamburguer, apple));
+        day2.setLunch(new Eat(DataForAll.lunch, fideua, hamburguer, yogurt));
+        day3.setLunch(new Eat(DataForAll.lunch, soup, omelet, yogurt));
+        day4.setLunch(new Eat(DataForAll.lunch, fideua, omelet, apple));
+        day5.setLunch(new Eat(DataForAll.lunch, soup, omelet, apple));
+        day6.setLunch(new Eat(DataForAll.lunch, cousCous, hamburguer, yogurt));
+        day7.setLunch(new Eat(DataForAll.lunch, fideua, omelet, apple));
 
-        day1.add(new Eat(DataForAll.dinner, cousCous, omelet, yogurt));
-        day2.add(new Eat(DataForAll.dinner, soup, omelet, yogurt));
-        day3.add(new Eat(DataForAll.dinner, cousCous, hamburguer, apple));
-        day4.add(new Eat(DataForAll.dinner, soup, hamburguer, yogurt));
-        day5.add(new Eat(DataForAll.dinner, cousCous, omelet, yogurt));
-        day6.add(new Eat(DataForAll.dinner, soup, omelet, apple));
-        day7.add(new Eat(DataForAll.dinner, cousCous, hamburguer, yogurt));
+        day1.setDinner(new Eat(DataForAll.dinner, cousCous, omelet, yogurt));
+        day2.setDinner(new Eat(DataForAll.dinner, soup, omelet, yogurt));
+        day3.setDinner(new Eat(DataForAll.dinner, cousCous, hamburguer, apple));
+        day4.setDinner(new Eat(DataForAll.dinner, soup, hamburguer, yogurt));
+        day5.setDinner(new Eat(DataForAll.dinner, cousCous, omelet, yogurt));
+        day6.setDinner(new Eat(DataForAll.dinner, soup, omelet, apple));
+        day7.setDinner(new Eat(DataForAll.dinner, cousCous, hamburguer, yogurt));
 
         DataForAll.weeklySchedule.put(Calendar.getInstance().get(Calendar.DAY_OF_YEAR), day1);
         DataForAll.weeklySchedule.put(Calendar.getInstance().get(Calendar.DAY_OF_YEAR)+1, day2);

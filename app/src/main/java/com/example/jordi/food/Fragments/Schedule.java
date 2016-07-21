@@ -4,11 +4,21 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import com.example.jordi.food.Adapters.AdapterDailySchedule;
+import com.example.jordi.food.Adapters.AdapterEat;
+import com.example.jordi.food.Adapters.DailySchedule;
+import com.example.jordi.food.Adapters.Eat;
+import com.example.jordi.food.DataForAll;
 import com.example.jordi.food.R;
+
+import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +33,10 @@ public class Schedule extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    private AdapterDailySchedule adapterDailySchedule;
+    private ArrayList<DailySchedule> arrayListDailySchedule;
+    private ListView listView;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -50,6 +64,20 @@ public class Schedule extends Fragment {
 
     public Schedule() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initVariables(view);
+    }
+
+    private void initVariables (View view) {
+        arrayListDailySchedule = new ArrayList<>(DataForAll.weeklySchedule.values());
+        adapterDailySchedule = new AdapterDailySchedule(this.getActivity(), arrayListDailySchedule);
+        listView = (ListView) view.findViewById(R.id.listAllDays);
+        listView.setAdapter(adapterDailySchedule);
+
     }
 
     @Override
