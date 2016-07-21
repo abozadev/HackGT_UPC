@@ -3,6 +3,117 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:text="Breakfast"
+        android:id="@+id/textEatingTime"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- First dish -->
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_weight="0.3"
+            android:src="@drawable/ic_launcher"
+            android:id="@+id/imageFirstDish"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.3"
+            android:text="First dish"
+            android:padding="10dp"
+            android:id="@+id/textFirstDish"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_weight="0.3"
+            android:layout_gravity="left"
+            android:text="info"
+            android:id="@+id/infoFirstDish"/>
+
+    </LinearLayout>
+
+        <!-- Second dish -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_weight="0.3"
+            android:src="@drawable/ic_launcher"
+            android:id="@+id/imageSecondDish"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.3"
+            android:text="Second dish"
+            android:padding="10dp"
+            android:id="@+id/textSecondDish"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_weight="0.3"
+            android:layout_gravity="left"
+            android:text="info"
+            android:id="@+id/infoSecondDish"/>
+
+    </LinearLayout>
+
+    <!-- Second dish -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_weight="0.3"
+            android:src="@drawable/ic_launcher"
+            android:id="@+id/imageThirdDish"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="0.3"
+            android:text="Third dish"
+            android:padding="10dp"
+            android:id="@+id/textThirdDish"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:layout_weight="0.3"
+            android:layout_gravity="left"
+            android:text="info"
+            android:id="@+id/infoThirdDish"/>
+
+    </LinearLayout>
 
 </LinearLayout>
