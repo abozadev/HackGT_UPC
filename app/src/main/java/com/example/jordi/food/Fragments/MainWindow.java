@@ -94,6 +94,7 @@ public class MainWindow extends Fragment {
         textDate.setText(createDate());
         adapterEat = new AdapterEat(this.getActivity(), listEat);
         listView = (ListView) view.findViewById(R.id.listMainMenu);
+        listView.setAdapter(adapterEat);
     }
 
     @Override
