@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.jordi.food.Fragments.FoodSupplyWindow;
 import com.example.jordi.food.Fragments.MainWindow;
 import com.example.jordi.food.Fragments.ProfileFragment;
 
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity implements MainWindow.OnFragmentInteractionListener,
-    ProfileFragment.OnFragmentInteractionListener {
+    ProfileFragment.OnFragmentInteractionListener, FoodSupplyWindow.OnFragmentInteractionListener {
 
     private DrawerLayout mDrawerLayout;
     private ArrayList<String> arrayMenu = new ArrayList<String>();
@@ -55,7 +56,7 @@ public class MainActivity extends ActionBarActivity implements MainWindow.OnFrag
             case 3:
                 break;
             case 4:
-                // fragment = new FoodSupplyWindow();
+                fragment = new FoodSupplyWindow();
                 break;
             default:
                 break;
