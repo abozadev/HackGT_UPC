@@ -4,41 +4,25 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 
-import com.example.jordi.food.Adapters.AdapterEat;
-import com.example.jordi.food.Adapters.Eat;
-import com.example.jordi.food.DataForAll;
 import com.example.jordi.food.R;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link MainWindow.OnFragmentInteractionListener} interface
+ * {@link Schedule.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link MainWindow#newInstance} factory method to
+ * Use the {@link Schedule#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainWindow extends Fragment {
+public class Schedule extends Fragment {
+    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private int offsetDay;
-
-    private TextView textDate;
-    private AdapterEat adapterEat;
-    private ArrayList<Eat> listEat;
-    private ListView listView;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -52,11 +36,11 @@ public class MainWindow extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MainWindow.
+     * @return A new instance of fragment Schedule.
      */
     // TODO: Rename and change types and number of parameters
-    public static MainWindow newInstance(String param1, String param2) {
-        MainWindow fragment = new MainWindow(0);
+    public static Schedule newInstance(String param1, String param2) {
+        Schedule fragment = new Schedule();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,9 +48,8 @@ public class MainWindow extends Fragment {
         return fragment;
     }
 
-    public MainWindow(int offsetDay) {
+    public Schedule() {
         // Required empty public constructor
-        this.offsetDay = offsetDay;
     }
 
     @Override
@@ -79,36 +62,10 @@ public class MainWindow extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initVariables(view);
-    }
-
-    private String createDate () {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(calendar.getTimeInMillis() + offsetDay*24*3600*1000); // adding one day, if necessary
-        String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-        String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "Septembet",
-                "October", "November", "December"};
-        return "" + daysOfWeek[calendar.get(Calendar.DAY_OF_WEEK)-1] + ", " + calendar.get(Calendar.DAY_OF_MONTH) +
-                " " + months[calendar.get(Calendar.MONTH)-1] + " " + calendar.get(Calendar.YEAR);
-    }
-
-    private void initVariables (View view) {
-        textDate = (TextView) view.findViewById(R.id.date);
-        textDate.setText(createDate());
-        listEat = DataForAll.weeklySchedule.get(Calendar.getInstance().get(Calendar.DAY_OF_YEAR)+offsetDay);
-        Log.i("length listEat", "" + listEat.size());
-        adapterEat = new AdapterEat(this.getActivity(), listEat);
-        listView = (ListView) view.findViewById(R.id.listMainMenu);
-        listView.setAdapter(adapterEat);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_window, container, false);
+        return inflater.inflate(R.layout.fragment_schedule, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

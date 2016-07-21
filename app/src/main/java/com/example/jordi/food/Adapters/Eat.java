@@ -4,32 +4,23 @@ package com.example.jordi.food.Adapters;
  * Created by jordi on 21/07/16.
  */
 public class Eat {
-    private String eatingTime;
-    private String firstDish;
-    private String secondDish;
-    private String thirdDish;
-    private String imgFirstDish;
-    private String imgSecondDish;
-    private String imgThirdDish;
+    private Dish firstDish;
+    private Dish secondDish;
+    private Dish thirdDish;
+    private String eatingTime; // breakfast, lunch or dinner
 
     public Eat () {
         this.eatingTime = new String();
-        this.firstDish = new String();
-        this.secondDish = new String();
-        this.thirdDish = new String();
-        this.imgFirstDish = new String();
-        this.imgSecondDish = new String();
-        this.imgThirdDish = new String();
+        this.firstDish = new Dish();
+        this.secondDish = new Dish();
+        this.thirdDish = new Dish();
     }
 
-    public Eat(String eatingTime, String firstDish, String secondDish, String thirdDish, String imgFirstDish, String imgSecondDish, String imgThirdDish) {
+    public Eat(String eatingTime, Dish firstDish, Dish secondDish, Dish thirdDish) {
         this.eatingTime = eatingTime;
         this.firstDish = firstDish;
         this.secondDish = secondDish;
         this.thirdDish = thirdDish;
-        this.imgFirstDish = imgFirstDish;
-        this.imgSecondDish = imgSecondDish;
-        this.imgThirdDish = imgThirdDish;
     }
 
     public String getEatingTime() {
@@ -40,51 +31,27 @@ public class Eat {
         this.eatingTime = eatingTime;
     }
 
-    public String getFirstDish() {
+    public Dish getFirstDish() {
         return firstDish;
     }
 
-    public void setFirstDish(String firstDish) {
+    public void setFirstDish(Dish firstDish) {
         this.firstDish = firstDish;
     }
 
-    public String getSecondDish() {
+    public Dish getSecondDish() {
         return secondDish;
     }
 
-    public void setSecondDish(String secondDish) {
+    public void setSecondDish(Dish secondDish) {
         this.secondDish = secondDish;
     }
 
-    public String getThirdDish() {
+    public Dish getThirdDish() {
         return thirdDish;
     }
 
-    public void setThirdDish(String thirdDish) {
+    public void setThirdDish(Dish thirdDish) {
         this.thirdDish = thirdDish;
-    }
-
-    public String getImgFirstDish() {
-        return imgFirstDish;
-    }
-
-    public void setImgFirstDish(String imgFirstDish) {
-        this.imgFirstDish = imgFirstDish;
-    }
-
-    public String getImgSecondDish() {
-        return imgSecondDish;
-    }
-
-    public void setImgSecondDish(String imgSecondDish) {
-        this.imgSecondDish = imgSecondDish;
-    }
-
-    public String getImgThirdDish() {
-        return imgThirdDish;
-    }
-
-    public void setImgThirdDish(String imgThirdDish) {
-        this.imgThirdDish = imgThirdDish;
     }
 }
