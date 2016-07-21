@@ -47,10 +47,10 @@ public class MainActivity extends ActionBarActivity implements MainWindow.OnFrag
                 fragment = new ProfileFragment();
                 break;
             case 1:
-                fragment = new MainWindow(); // today
+                fragment = new MainWindow(0); // today
                 break;
             case 2:
-                fragment = new MainWindow(); // tomorrow
+                fragment = new MainWindow(1); // tomorrow
                 break;
             case 3:
                 break;
