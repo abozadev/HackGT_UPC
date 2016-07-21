@@ -40,7 +40,23 @@ public class MainActivity extends ActionBarActivity implements MainWindow.OnFrag
     /** Swaps fragments in the main content view */
     private void selectItem(int position) {
         // Create a new fragment and specify the planet to show based on position
-        fragment = new MainWindow();
+        switch (position) {
+            case 0:
+                break;
+            case 1:
+                fragment = new MainWindow(); // today
+                break;
+            case 2:
+                fragment = new MainWindow(); // tomorrow
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            default:
+                break;
+        }
+        //fragment = new MainWindow();
         Bundle args = new Bundle();
         Log.i("Position", "" + position);
         //args.putString("nomComanda", arrayMenu.get(position));
@@ -85,6 +101,8 @@ public class MainActivity extends ActionBarActivity implements MainWindow.OnFrag
         adapterMenu = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, arrayMenu);
         listViewMenu = (ListView) findViewById(R.id.left_drawer);;
         listViewMenu.setAdapter(adapterMenu);
+
+        DataForAll.createData();
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.jordi.food.Adapters.AdapterEat;
 import com.example.jordi.food.Adapters.Eat;
+import com.example.jordi.food.DataForAll;
 import com.example.jordi.food.R;
 
 import java.util.ArrayList;
@@ -85,13 +87,15 @@ public class MainWindow extends Fragment {
         String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
         String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "Septembet",
                 "October", "November", "December"};
-        return "" + daysOfWeek[calendar.get(Calendar.DAY_OF_WEEK)] + ", " + months[calendar.get(Calendar.DAY_OF_MONTH)] +
-                " " + calendar.get(Calendar.MONTH) + " " + calendar.get(Calendar.YEAR);
+        return "" + daysOfWeek[calendar.get(Calendar.DAY_OF_WEEK)-1] + ", " + calendar.get(Calendar.DAY_OF_MONTH) +
+                " " + months[calendar.get(Calendar.MONTH)-1] + " " + calendar.get(Calendar.YEAR);
     }
 
     private void initVariables (View view) {
         textDate = (TextView) view.findViewById(R.id.date);
         textDate.setText(createDate());
+        listEat = DataForAll.demoMenuList;
+        Log.i("length listEat", "" + listEat.size());
         adapterEat = new AdapterEat(this.getActivity(), listEat);
         listView = (ListView) view.findViewById(R.id.listMainMenu);
         listView.setAdapter(adapterEat);
