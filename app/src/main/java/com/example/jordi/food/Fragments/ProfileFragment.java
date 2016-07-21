@@ -32,6 +32,11 @@ public class ProfileFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     static final int MANAGE_LIKES_REQUEST = 1;
+    static final int MANAGE_DISLIKES_REQUEST = 2;
+
+    public static final int RESULT_CANCELED    = 0;
+    /** Standard activity result: operation succeeded. */
+    public static final int RESULT_OK           = -1;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -97,6 +102,8 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v)
             {
                 //TODO Manage dislike
+                Intent intent = new Intent(getActivity(), ManageLikes.class);
+                startActivityForResult(intent, MANAGE_DISLIKES_REQUEST);
             }
         });
         return view;
@@ -141,5 +148,22 @@ public class ProfileFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        if (requestCode == MANAGE_LIKES_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                //TODO SAVE LIKES DATA
+            }
+        }
+
+        if (requestCode == MANAGE_DISLIKES_REQUEST) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                //TODO SAVE DISLIKES DATA
+            }
+        }
+    }
 
 }

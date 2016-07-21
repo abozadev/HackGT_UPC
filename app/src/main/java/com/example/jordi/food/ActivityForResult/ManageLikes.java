@@ -26,10 +26,38 @@ public class ManageLikes extends ActionBarActivity {
         Button addButton = (Button) findViewById(R.id.buttonAddLike);
         ListView listView = (ListView) findViewById(R.id.manageLikeList);
         final ArrayList<String> listItems = new ArrayList<String>();
-        listItems.add("First Item - added on Activity Create");
+        //listItems.add("First Item - added on Activity Create");
+        //TODO ADD ITEMS TO LIST FROM DATA
+
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, listItems);
         listView.setAdapter(adapter);
+
+        Button saveButton = (Button) findViewById(R.id.buttonSaveLike);
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent data = new Intent();
+                data.putExtra("likes", listItems);
+                setResult(RESULT_OK, data);
+                finish();
+            }
+        });
+
+        Button cancelButton = (Button) findViewById(R.id.buttonCancelLike);
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent data = new Intent();
+                data.putExtra("likes", listItems);
+                setResult(RESULT_CANCELED, data);
+                finish();
+            }
+        });
+
+
         addButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -37,6 +65,8 @@ public class ManageLikes extends ActionBarActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
