@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.jordi.food.DataForAll;
 import com.example.jordi.food.Info;
 import com.example.jordi.food.R;
 
@@ -46,32 +47,45 @@ public class AdapterEat extends ArrayAdapter<Eat> {
         TextView textThirdDish = (TextView) row.findViewById(R.id.textThirdDish);
 
         textEatingTime.setText(eatingMeal.getEatingTime());
-        textFirstDish.setText(eatingMeal.getFirstDish());
-        textSecondDish.setText(eatingMeal.getSecondDish());
-        textThirdDish.setText(eatingMeal.getThirdDish());
+        textFirstDish.setText(eatingMeal.getFirstDish().getName());
+        textSecondDish.setText(eatingMeal.getSecondDish().getName());
+        textThirdDish.setText(eatingMeal.getThirdDish().getName());
 
-        setImage(row, imageFirstDish, eatingMeal.getImgFirstDish());
-        setImage(row, imageSecondDish, eatingMeal.getImgSecondDish());
-        setImage(row, imageThirdDish, eatingMeal.getImgThirdDish());
+        setImage(row, imageFirstDish, eatingMeal.getFirstDish().getImg());
+        setImage(row, imageSecondDish, eatingMeal.getSecondDish().getImg());
+        setImage(row, imageThirdDish, eatingMeal.getThirdDish().getImg());
 
         Button infoFirstDish = (Button) row.findViewById(R.id.infoFirstDish);
         Button infoSecondDish = (Button) row.findViewById(R.id.infoSecondDish);
         Button infoThirdDish = (Button) row.findViewById(R.id.infoThirdDish);
 
-        setListeners(infoFirstDish, eatingMeal.getFirstDish());
-        setListeners(infoSecondDish, eatingMeal.getSecondDish());
-        setListeners(infoThirdDish, eatingMeal.getThirdDish());
+        setListeners(infoFirstDish, eatingMeal, 0);
+        setListeners(infoSecondDish, eatingMeal, 1);
+        setListeners(infoThirdDish, eatingMeal, 2);
 
         return row;
     }
 
-    private void setListeners (Button info, final String dish) {
+    private void setListeners (Button info, final Eat eatingMeal, final int pos) {
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // create new Info activity
                 Intent intent = new Intent(context, Info.class);
-                intent.putExtra("name", dish);
+                //intent.putExtra("name", dish);
+                switch (pos) {
+                    case 0:
+                        DataForAll.selectedDish = eatingMeal.getFirstDish();
+                        break;
+                    case 1:
+                        DataForAll.selectedDish = eatingMeal.getSecondDish();
+                        break;
+                    case 2:
+                        DataForAll.selectedDish = eatingMeal.getThirdDish();
+                        break;
+                    default:
+                        break;
+                }
                 context.startActivity(intent);
             }
         });

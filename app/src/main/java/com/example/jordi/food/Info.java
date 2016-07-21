@@ -8,10 +8,13 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.jordi.food.Adapters.Dish;
+import com.example.jordi.food.Adapters.Ingredient;
+
 
 public class Info extends ActionBarActivity {
 
-    private String dishName;
+    private Dish dish;
     private TextView title;
     private ImageView imageView;
     private TextView listIngredients;
@@ -26,13 +29,18 @@ public class Info extends ActionBarActivity {
     }
 
     private void initVariables () {
-        Intent intent = getIntent();
-        dishName = intent.getStringExtra("name");
+        dish = DataForAll.selectedDish;
         title = (TextView) findViewById(R.id.title);
-        title.setText(dishName);
+        title.setText(dish.getName());
         imageView = (ImageView) findViewById(R.id.imgDish);
         listIngredients = (TextView) findViewById(R.id.textIngredients);
+        String strIngredients = new String();
+        for (Ingredient auxIng : dish.getIngredients()) {
+            strIngredients = strIngredients + "- " + auxIng.getName() + "\n";
+        }
+        listIngredients.setText(strIngredients);
         listIntructions = (TextView) findViewById(R.id.explanationCook);
+        listIntructions.setText(dish.getHowToCook());
     }
 
     @Override
