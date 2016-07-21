@@ -55,6 +55,7 @@ public class MainActivity extends ActionBarActivity implements MainWindow.OnFrag
             case 3:
                 break;
             case 4:
+                // fragment = new FoodSupplyWindow();
                 break;
             default:
                 break;
@@ -101,6 +102,7 @@ public class MainActivity extends ActionBarActivity implements MainWindow.OnFrag
         arrayMenu.add("Today");
         arrayMenu.add("Tomorrow");
         arrayMenu.add("Food schedule");
+        arrayMenu.add("Food supply");
         adapterMenu = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, arrayMenu);
         listViewMenu = (ListView) findViewById(R.id.left_drawer);;
         listViewMenu.setAdapter(adapterMenu);
