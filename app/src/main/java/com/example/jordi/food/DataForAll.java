@@ -43,58 +43,58 @@ public class DataForAll {
         // Breakfast
         ArrayList<Ingredient> ingredientsMilk = new ArrayList<>();
         ingredientsMilk.add(new Ingredient("milk", 0.5));
-        Dish milk = new Dish("Milk", "", 0.2, ingredientsMilk, "");
+        Dish milk = new Dish("Milk", "@drawable/llet", 0.2, ingredientsMilk, "");
 
         ArrayList<Ingredient> ingredientsCookies = new ArrayList<>();
         ingredientsCookies.add(new Ingredient("cookies", 0.1));
-        Dish cookies = new Dish("Cookies", "", 0.2, ingredientsCookies, "");
+        Dish cookies = new Dish("Cookies", "@drawable/galetes", 0.2, ingredientsCookies, "");
 
         ArrayList<Ingredient> ingredientsOrangeJuice = new ArrayList<>();
         ingredientsOrangeJuice.add(new Ingredient("orange juice", 0.1));
-        Dish orangeJuice = new Dish("Orange juice", "", 0.2, ingredientsOrangeJuice, "");
+        Dish orangeJuice = new Dish("Orange juice", "@drawable/suc_pressec", 0.2, ingredientsOrangeJuice, "");
 
         ArrayList<Ingredient> ingredientsAppleJuice = new ArrayList<>();
-        ingredientsAppleJuice.add(new Ingredient("orange juice", 0.1));
-        Dish appleJuice = new Dish("Apple juice", "", 0.2, ingredientsAppleJuice, "");
+        ingredientsAppleJuice.add(new Ingredient("apple juice", 0.1));
+        Dish appleJuice = new Dish("Apple juice", "@drawable/suc_poma", 0.2, ingredientsAppleJuice, "");
 
         // Lunch or dinner
         ArrayList<Ingredient> ingredientsSoup = new ArrayList<>();
         ingredientsSoup.add(new Ingredient("caldo de pollastre", 1));
         ingredientsSoup.add(new Ingredient("galets", 0.2));
-        Dish soup = new Dish("Soup", "", 10, ingredientsSoup, "Boil during 10 min");
+        Dish soup = new Dish("Soup", "@drawable/sopa", 10, ingredientsSoup, "Boil during 10 min");
 
         ArrayList<Ingredient> ingredientsCousCous = new ArrayList<>();
         ingredientsCousCous.add(new Ingredient("cous-cous", 0.4));
         ingredientsCousCous.add(new Ingredient("bacon", 0.1));
         ingredientsCousCous.add(new Ingredient("pastanaga", 0.5));
         ingredientsCousCous.add(new Ingredient("carbasso", 0.5));
-        Dish cousCous = new Dish("Cous-cous", "", 15, ingredientsCousCous, "Put all on a paella");
+        Dish cousCous = new Dish("Cous-cous", "@drawable/cous_cous", 15, ingredientsCousCous, "Put all on a paella");
 
         ArrayList<Ingredient> ingredientsFideua = new ArrayList<>();
         ingredientsFideua.add(new Ingredient("caldo de peix", 1));
         ingredientsFideua.add(new Ingredient("fideus", 0.3));
-        Dish fideua = new Dish("Fideua", "", 30, ingredientsFideua, "Put the noodles on a paella and then add the stock");
+        Dish fideua = new Dish("Fideua", "@drawable/fideua", 30, ingredientsFideua, "Put the noodles on a paella and then add the stock");
 
         ArrayList<Ingredient> ingredientsHamburguer = new ArrayList<>();
         ingredientsHamburguer.add(new Ingredient("hamburguesa", 0.2));
         ingredientsHamburguer.add(new Ingredient("ceba", 0.2));
         ingredientsHamburguer.add(new Ingredient("ous", 0.2));
-        Dish hamburguer = new Dish("Hamburguer", "", 20, ingredientsHamburguer, "Cook all the food");
+        Dish hamburguer = new Dish("Hamburguer", "@drawable/hamburguesa", 20, ingredientsHamburguer, "Cook all the food");
 
         ArrayList<Ingredient> ingredientsOmelet = new ArrayList<>();
         ingredientsOmelet.add(new Ingredient("patates", 0.4));
         ingredientsOmelet.add(new Ingredient("ceba", 0.2));
         ingredientsOmelet.add(new Ingredient("ous", 0.2));
-        Dish omelet = new Dish("Hamburguer", "", 15, ingredientsOmelet, "Put the potatoes and the onion on the food" +
+        Dish omelet = new Dish("Omelet", "@drawable/truita", 15, ingredientsOmelet, "Put the potatoes and the onion on the food" +
                 "and then add the eggs");
 
         ArrayList<Ingredient> ingredientsApple = new ArrayList<>();
         ingredientsApple.add(new Ingredient("apple", 0.2));
-        Dish apple = new Dish("Apple", "", 0.3, ingredientsApple, "");
+        Dish apple = new Dish("Apple", "@drawable/poma", 0.3, ingredientsApple, "");
 
         ArrayList<Ingredient> ingredientsYogurt = new ArrayList<>();
         ingredientsYogurt.add(new Ingredient("yogurt", 0.2));
-        Dish yogurt = new Dish("Yougurt", "", 0.3, ingredientsYogurt, "");
+        Dish yogurt = new Dish("Yougurt", "@drawable/iogurt", 0.3, ingredientsYogurt, "");
 
         day1.setBreakfast(new Eat(DataForAll.breakfast, milk, cookies, orangeJuice));
         day2.setBreakfast(new Eat(DataForAll.breakfast, milk, cookies, appleJuice));

@@ -27,14 +27,14 @@ public class AdapterEat extends ArrayAdapter<Eat> {
     Context context;
 
     public AdapterEat(Context context, List<Eat> data) {
-        super(context, R.layout.layout_eat, data);
+        super(context, R.layout.layout_eat_new, data);
         this.context = context;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View row = inflater.inflate(R.layout.layout_eat, parent, false);
+        View row = inflater.inflate(R.layout.layout_eat_new, parent, false);
         final Eat eatingMeal = getItem(position);
 
         ImageView imageFirstDish = (ImageView) row.findViewById(R.id.imageFirstDish);
