@@ -35,7 +35,7 @@ public class ShowDailyDishes extends ActionBarActivity {
     private String createDate () {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(calendar.getTimeInMillis() + offsetDay*24*3600*1000); // adding one day, if necessary
-        String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+        String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
         String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "Septembet",
                 "October", "November", "December"};
         return "" + daysOfWeek[calendar.get(Calendar.DAY_OF_WEEK)-1] + ", " + calendar.get(Calendar.DAY_OF_MONTH) +

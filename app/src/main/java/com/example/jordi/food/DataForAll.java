@@ -28,7 +28,7 @@ public class DataForAll {
     public static String breakfast = "Breakfast";
     public static String lunch = "Lunch";
     public static String dinner = "Dinner";
-    public static String[] daysOfWeek = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+    public static String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     public static String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "Septembet",
             "October", "November", "December"};
 
