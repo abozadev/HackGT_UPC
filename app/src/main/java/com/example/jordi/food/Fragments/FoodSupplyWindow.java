@@ -1,6 +1,7 @@
 package com.example.jordi.food.Fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -8,9 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.example.jordi.food.DataForAll;
+import com.example.jordi.food.MapsActivity;
 import com.example.jordi.food.R;
 
 import java.text.SimpleDateFormat;
@@ -75,8 +79,6 @@ public class FoodSupplyWindow extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
-
     }
 
     @Override
@@ -102,6 +104,19 @@ public class FoodSupplyWindow extends Fragment {
 
             }
         }
+
+        Button openMap = (Button) view.findViewById(R.id.buttonOpenMap);
+
+
+        openMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), MapsActivity.class);
+                startActivity(i);
+            }
+        });
+
+        
 
         ListView listView = (ListView) view.findViewById(R.id.listIngredients);
 

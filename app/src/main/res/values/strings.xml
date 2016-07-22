@@ -22,6 +22,7 @@
     </string-array>
     <string name="title_activity_manage_likes">ManageLikes</string>
     <string name="title_activity_manage_dislikes">ManageDislikes</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>
