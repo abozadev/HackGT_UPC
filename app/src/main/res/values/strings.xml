@@ -10,7 +10,6 @@
 
     <!-- Shared Preferences -->
 
-
     <string-array name="times">
         <item>10 min</item>
         <item>20 min</item>
@@ -20,8 +19,9 @@
         <item>1h</item>
         <item>+1h</item>
     </string-array>
+
     <string name="title_activity_manage_likes">ManageLikes</string>
     <string name="title_activity_manage_dislikes">ManageDislikes</string>
-
+    <string name="title_activity_show_daily_dishes">ShowDailyDishes</string>
 
 </resources>

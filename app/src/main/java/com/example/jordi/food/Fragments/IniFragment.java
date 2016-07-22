@@ -1,45 +1,28 @@
 package com.example.jordi.food.Fragments;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
-import com.example.jordi.food.Adapters.AdapterDailySchedule;
-import com.example.jordi.food.Adapters.AdapterEat;
-import com.example.jordi.food.Adapters.DailySchedule;
-import com.example.jordi.food.Adapters.Eat;
-import com.example.jordi.food.DataForAll;
 import com.example.jordi.food.R;
-import com.example.jordi.food.ShowDailyDishes;
-
-import java.util.ArrayList;
-import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Schedule.OnFragmentInteractionListener} interface
+ * {@link IniFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Schedule#newInstance} factory method to
+ * Use the {@link IniFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Schedule extends Fragment {
+public class IniFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    private AdapterDailySchedule adapterDailySchedule;
-    private ArrayList<DailySchedule> arrayListDailySchedule;
-    private ListView listView;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -53,11 +36,11 @@ public class Schedule extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Schedule.
+     * @return A new instance of fragment IniFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static Schedule newInstance(String param1, String param2) {
-        Schedule fragment = new Schedule();
+    public static IniFragment newInstance(String param1, String param2) {
+        IniFragment fragment = new IniFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,34 +48,8 @@ public class Schedule extends Fragment {
         return fragment;
     }
 
-    public Schedule() {
+    public IniFragment() {
         // Required empty public constructor
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        initVariables(view);
-        clicOnList();
-    }
-
-    private void clicOnList () {
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getActivity(), ShowDailyDishes.class);
-                intent.putExtra("offset", position);
-                startActivity(intent);
-            }
-        });
-    }
-
-    private void initVariables (View view) {
-        arrayListDailySchedule = new ArrayList<>(DataForAll.weeklySchedule.values());
-        adapterDailySchedule = new AdapterDailySchedule(this.getActivity(), arrayListDailySchedule);
-        listView = (ListView) view.findViewById(R.id.listAllDays);
-        listView.setAdapter(adapterDailySchedule);
-
     }
 
     @Override
@@ -108,7 +65,7 @@ public class Schedule extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_schedule, container, false);
+        return inflater.inflate(R.layout.fragment_ini, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

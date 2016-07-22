@@ -1,5 +1,6 @@
 package com.example.jordi.food.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -53,7 +54,9 @@ public class AdapterEat extends ArrayAdapter<Eat> {
         textFirstDish.setText(eatingMeal.getFirstDish().getName());
         textSecondDish.setText(eatingMeal.getSecondDish().getName());
         textThirdDish.setText(eatingMeal.getThirdDish().getName());
-        timeFirstDish.setText(eatingMeal.getFirstDish().getTime());
+        timeFirstDish.setText(eatingMeal.getFirstDish().getTime().toString() + " min");
+        timeSecondDish.setText(eatingMeal.getSecondDish().getTime().toString() + " min");
+        timeThirdDish.setText(eatingMeal.getThirdDish().getTime().toString() + " min");
 
         setImage(row, imageFirstDish, eatingMeal.getFirstDish().getImg());
         setImage(row, imageSecondDish, eatingMeal.getSecondDish().getImg());
@@ -90,6 +93,7 @@ public class AdapterEat extends ArrayAdapter<Eat> {
                     default:
                         break;
                 }
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });

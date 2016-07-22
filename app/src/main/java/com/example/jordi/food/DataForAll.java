@@ -7,6 +7,7 @@ import com.example.jordi.food.Adapters.Ingredient;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Map;
 import java.util.TreeMap;
 
 /**
@@ -25,6 +26,40 @@ public class DataForAll {
             "October", "November", "December"};
 
     public static Dish selectedDish;
+
+    public static ArrayList<String> getAllIngredients () {
+        ArrayList<String> result = new ArrayList<>();
+        for (Map.Entry<Integer, DailySchedule> elem : DataForAll.weeklySchedule.entrySet()) {
+            for (Ingredient ingredient : elem.getValue().getBreakfast().getFirstDish().getIngredients()) {
+                result.add(ingredient.getName());
+            }
+            for (Ingredient ingredient : elem.getValue().getBreakfast().getSecondDish().getIngredients()) {
+                result.add(ingredient.getName());
+            }
+            for (Ingredient ingredient : elem.getValue().getBreakfast().getThirdDish().getIngredients()) {
+                result.add(ingredient.getName());
+            }
+            for (Ingredient ingredient : elem.getValue().getLunch().getFirstDish().getIngredients()) {
+                result.add(ingredient.getName());
+            }
+            for (Ingredient ingredient : elem.getValue().getLunch().getSecondDish().getIngredients()) {
+                result.add(ingredient.getName());
+            }
+            for (Ingredient ingredient : elem.getValue().getLunch().getThirdDish().getIngredients()) {
+                result.add(ingredient.getName());
+            }
+            for (Ingredient ingredient : elem.getValue().getDinner().getFirstDish().getIngredients()) {
+                result.add(ingredient.getName());
+            }
+            for (Ingredient ingredient : elem.getValue().getDinner().getSecondDish().getIngredients()) {
+                result.add(ingredient.getName());
+            }
+            for (Ingredient ingredient : elem.getValue().getDinner().getThirdDish().getIngredients()) {
+                result.add(ingredient.getName());
+            }
+        }
+        return result;
+    }
 
     public static void createData () {
         /*

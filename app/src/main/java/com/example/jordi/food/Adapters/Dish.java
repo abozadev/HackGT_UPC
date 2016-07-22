@@ -15,7 +15,7 @@ public class Dish {
     public Dish () {
         this.name = new String();
         this.img = new String();
-        this.time = 0;
+        this.time = 0.0;
         this.ingredients = new ArrayList<>();
         this.howToCook = new String();
     }
@@ -44,11 +44,11 @@ public class Dish {
         this.img = img;
     }
 
-    public double getTime() {
+    public Double getTime() {
         return time;
     }
 
-    public void setTime(double time) {
+    public void setTime(Double time) {
         this.time = time;
     }
 

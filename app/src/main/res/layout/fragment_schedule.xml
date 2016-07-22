@@ -18,6 +18,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
                 android:textSize="20dp"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:text="Day"/>
 
@@ -26,6 +27,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
                 android:textSize="20dp"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:text="Breakfast"/>
 
@@ -34,6 +36,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
                 android:textSize="20dp"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:text="Lunch"/>
 
@@ -42,6 +45,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
                 android:textSize="20dp"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:text="Dinner"/>
 
@@ -56,6 +60,7 @@
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:dividerHeight="8dp"
             android:id="@+id/listAllDays">
 
         </ListView>

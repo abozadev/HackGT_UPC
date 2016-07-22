@@ -1,10 +1,15 @@
 package com.example.jordi.food;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,11 +33,28 @@ public class Info extends ActionBarActivity {
 
     }
 
+    private void setImage (ImageView imageView, String strImg) {
+        if (strImg != null && strImg.length() > 0) {
+            if (strImg.charAt(0) == '@') {
+                String uri = strImg;  // where myresource.png is the file
+                // extension removed from the String
+                int imageResource = getResources().getIdentifier(uri, null, getPackageName());
+                Log.i("img", strImg);
+                Drawable res = getResources().getDrawable(imageResource);
+                imageView.setImageDrawable(res);
+            } else {
+                Bitmap img = BitmapFactory.decodeFile(strImg);
+                imageView.setImageBitmap(img);
+            }
+        }
+    }
+
     private void initVariables () {
         dish = DataForAll.selectedDish;
         title = (TextView) findViewById(R.id.title);
         title.setText(dish.getName());
         imageView = (ImageView) findViewById(R.id.imgDish);
+        setImage(imageView, dish.getImg());
         listIngredients = (TextView) findViewById(R.id.textIngredients);
         String strIngredients = new String();
         for (Ingredient auxIng : dish.getIngredients()) {
