@@ -13,8 +13,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.jordi.food.ActivityForResult.ManageDislikes;
 import com.example.jordi.food.ActivityForResult.ManageLikes;
+import com.example.jordi.food.DataForAll;
 import com.example.jordi.food.R;
 
 /**
@@ -44,6 +48,9 @@ public class ProfileFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private SharedPreferences sharedPref;
+
+    private TextView textName;
+    private TextView textEmail;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -102,10 +109,29 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v)
             {
                 //TODO Manage dislike
-                Intent intent = new Intent(getActivity(), ManageLikes.class);
+                Intent intent = new Intent(getActivity(), ManageDislikes.class);
                 startActivityForResult(intent, MANAGE_DISLIKES_REQUEST);
             }
         });
+
+        Button buttonSave = (Button) view.findViewById(R.id.buttonSave);
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DataForAll.userName = textName.getText().toString();
+                DataForAll.email = textEmail.getText().toString();
+                Toast.makeText(getActivity(), "Saved", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        textName = (TextView) view.findViewById(R.id.textName);
+        textEmail = (TextView) view.findViewById(R.id.textEmail);
+        if (DataForAll.userName.length() > 0) {
+            textName.setText(DataForAll.userName);
+        }
+        if (DataForAll.email.length() > 0) {
+            textEmail.setText(DataForAll.email);
+        }
         return view;
     }
 

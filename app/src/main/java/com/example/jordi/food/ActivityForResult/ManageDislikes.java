@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.jordi.food.DataForAll;
 import com.example.jordi.food.R;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class ManageDislikes extends ActionBarActivity {
         final EditText editText = (EditText) findViewById(R.id.addDislike);
         Button addButton = (Button) findViewById(R.id.buttonAddDislike);
         ListView listView = (ListView) findViewById(R.id.manageDisLikeList);
-        final ArrayList<String> listItems = new ArrayList<String>();
+        final ArrayList<String> listItems = new ArrayList<String>(DataForAll.setDislikes);
         //listItems.add("First Item - added on Activity Create");
         //TODO ADD ITEMS TO LIST FROM DATA
 
@@ -41,6 +42,9 @@ public class ManageDislikes extends ActionBarActivity {
                 Intent data = new Intent();
                 data.putExtra("likes", listItems);
                 setResult(RESULT_OK, data);
+                for (String dislike : listItems) {
+                    DataForAll.setDislikes.add(dislike);
+                }
                 finish();
             }
         });

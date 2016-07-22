@@ -17,6 +17,12 @@ import java.util.TreeSet;
 public class DataForAll {
     public static ArrayList<Eat> demoMenuList = new ArrayList<>(); // not necessary right now
 
+    public static String userName = new String();
+    public static String email = new String();
+
+    public static TreeSet<String> setLikes = new TreeSet<>();
+    public static TreeSet<String> setDislikes = new TreeSet<>();
+
     public static TreeMap<Integer, DailySchedule> weeklySchedule = new TreeMap<>();
 
     public static String breakfast = "Breakfast";

@@ -1,8 +1,12 @@
 package com.example.jordi.food.ActivityForResult;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,11 +15,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.jordi.food.DataForAll;
 import com.example.jordi.food.R;
 
 import java.util.ArrayList;
 
-public class ManageLikes extends ActionBarActivity {
+public class ManageLikes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +30,7 @@ public class ManageLikes extends ActionBarActivity {
         final EditText editText = (EditText) findViewById(R.id.addLike);
         Button addButton = (Button) findViewById(R.id.buttonAddLike);
         ListView listView = (ListView) findViewById(R.id.manageLikeList);
-        final ArrayList<String> listItems = new ArrayList<String>();
+        final ArrayList<String> listItems = new ArrayList<>(DataForAll.setLikes);
         //listItems.add("First Item - added on Activity Create");
         //TODO ADD ITEMS TO LIST FROM DATA
 
@@ -41,6 +46,9 @@ public class ManageLikes extends ActionBarActivity {
                 Intent data = new Intent();
                 data.putExtra("likes", listItems);
                 setResult(RESULT_OK, data);
+                for (String like : listItems) {
+                    DataForAll.setLikes.add(like);
+                }
                 finish();
             }
         });
@@ -80,10 +88,29 @@ public class ManageLikes extends ActionBarActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener(){
 
             @Override
-            public boolean onItemLongClick(AdapterView<?> av, View v, int pos, long id)
+            public boolean onItemLongClick(AdapterView<?> av, View v, final int pos, long id)
             {
+                DataForAll.setLikes.remove(listItems.get(pos));
                 listItems.remove(pos);
                 adapter.notifyDataSetChanged();
+                /*
+                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                builder.setMessage("Do you want to remove " + listItems.get(pos) + "?")
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                DataForAll.setLikes.remove(listItems.get(pos));
+                                listItems.remove(pos);
+                                adapter.notifyDataSetChanged();
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // User cancelled the dialog
+                            }
+                        }).setIcon(android.R.drawable.ic_dialog_alert).create().show();
+                 */
+
+
                 return false;
             }
         });
