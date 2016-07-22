@@ -45,11 +45,15 @@ public class AdapterEat extends ArrayAdapter<Eat> {
         TextView textFirstDish = (TextView) row.findViewById(R.id.textFirstDish);
         TextView textSecondDish = (TextView) row.findViewById(R.id.textSecondDish);
         TextView textThirdDish = (TextView) row.findViewById(R.id.textThirdDish);
+        TextView timeFirstDish = (TextView) row.findViewById(R.id.timeFirstDish);
+        TextView timeSecondDish = (TextView) row.findViewById(R.id.timeSecondDish);
+        TextView timeThirdDish = (TextView) row.findViewById(R.id.timeThirdDish);
 
         textEatingTime.setText(eatingMeal.getEatingTime());
         textFirstDish.setText(eatingMeal.getFirstDish().getName());
         textSecondDish.setText(eatingMeal.getSecondDish().getName());
         textThirdDish.setText(eatingMeal.getThirdDish().getName());
+        timeFirstDish.setText(eatingMeal.getFirstDish().getTime());
 
         setImage(row, imageFirstDish, eatingMeal.getFirstDish().getImg());
         setImage(row, imageSecondDish, eatingMeal.getSecondDish().getImg());

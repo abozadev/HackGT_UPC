@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Dish {
     private String name;
     private String img;
-    private double time; // in minuts
+    private Double time; // in minuts
     private ArrayList<Ingredient> ingredients;
     private String howToCook;
 
