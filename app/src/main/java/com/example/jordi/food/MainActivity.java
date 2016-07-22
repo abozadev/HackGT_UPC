@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.jordi.food.Adapters.AdapterDailySchedule;
+import com.example.jordi.food.Fragments.FoodSupplyWindow;
 import com.example.jordi.food.Fragments.MainWindow;
 import com.example.jordi.food.Fragments.ProfileFragment;
 import com.example.jordi.food.Fragments.Schedule;
@@ -24,7 +25,8 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity implements MainWindow.OnFragmentInteractionListener,
-    ProfileFragment.OnFragmentInteractionListener, Schedule.OnFragmentInteractionListener {
+    ProfileFragment.OnFragmentInteractionListener, Schedule.OnFragmentInteractionListener,
+    FoodSupplyWindow.OnFragmentInteractionListener {
 
     private DrawerLayout mDrawerLayout;
     private ArrayList<String> arrayMenu = new ArrayList<String>();
@@ -58,7 +60,7 @@ public class MainActivity extends ActionBarActivity implements MainWindow.OnFrag
                 fragment = new Schedule();
                 break;
             case 4:
-                // fragment = new FoodSupplyWindow();
+                fragment = new FoodSupplyWindow();
                 break;
             default:
                 break;
