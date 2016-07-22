@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * Created by jordi on 21/07/16.
@@ -27,38 +28,40 @@ public class DataForAll {
 
     public static Dish selectedDish;
 
-    public static ArrayList<String> getAllIngredients () {
-        ArrayList<String> result = new ArrayList<>();
-        for (Map.Entry<Integer, DailySchedule> elem : DataForAll.weeklySchedule.entrySet()) {
-            for (Ingredient ingredient : elem.getValue().getBreakfast().getFirstDish().getIngredients()) {
+    public static ArrayList<String> getAllIngredients (int ini, int fi) {
+
+        TreeSet<String> result = new TreeSet<>();
+        for (int i = ini; i < fi; ++i) {
+            DailySchedule elem = (DailySchedule) DataForAll.weeklySchedule.values().toArray()[i];
+            for (Ingredient ingredient : elem.getBreakfast().getFirstDish().getIngredients()) {
                 result.add(ingredient.getName());
             }
-            for (Ingredient ingredient : elem.getValue().getBreakfast().getSecondDish().getIngredients()) {
+            for (Ingredient ingredient : elem.getBreakfast().getSecondDish().getIngredients()) {
                 result.add(ingredient.getName());
             }
-            for (Ingredient ingredient : elem.getValue().getBreakfast().getThirdDish().getIngredients()) {
+            for (Ingredient ingredient : elem.getBreakfast().getThirdDish().getIngredients()) {
                 result.add(ingredient.getName());
             }
-            for (Ingredient ingredient : elem.getValue().getLunch().getFirstDish().getIngredients()) {
+            for (Ingredient ingredient : elem.getLunch().getFirstDish().getIngredients()) {
                 result.add(ingredient.getName());
             }
-            for (Ingredient ingredient : elem.getValue().getLunch().getSecondDish().getIngredients()) {
+            for (Ingredient ingredient : elem.getLunch().getSecondDish().getIngredients()) {
                 result.add(ingredient.getName());
             }
-            for (Ingredient ingredient : elem.getValue().getLunch().getThirdDish().getIngredients()) {
+            for (Ingredient ingredient : elem.getLunch().getThirdDish().getIngredients()) {
                 result.add(ingredient.getName());
             }
-            for (Ingredient ingredient : elem.getValue().getDinner().getFirstDish().getIngredients()) {
+            for (Ingredient ingredient : elem.getDinner().getFirstDish().getIngredients()) {
                 result.add(ingredient.getName());
             }
-            for (Ingredient ingredient : elem.getValue().getDinner().getSecondDish().getIngredients()) {
+            for (Ingredient ingredient : elem.getDinner().getSecondDish().getIngredients()) {
                 result.add(ingredient.getName());
             }
-            for (Ingredient ingredient : elem.getValue().getDinner().getThirdDish().getIngredients()) {
+            for (Ingredient ingredient : elem.getDinner().getThirdDish().getIngredients()) {
                 result.add(ingredient.getName());
             }
         }
-        return result;
+        return new ArrayList<>(result);
     }
 
     public static void createData () {

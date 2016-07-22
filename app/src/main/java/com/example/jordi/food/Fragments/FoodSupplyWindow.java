@@ -8,11 +8,13 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.example.jordi.food.CustomDialog;
 import com.example.jordi.food.DataForAll;
 import com.example.jordi.food.MapsActivity;
 import com.example.jordi.food.R;
@@ -41,8 +43,11 @@ public class FoodSupplyWindow extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private int ini = 0;
+    private int fin = 6;
     List<String> spinnerArray =  new ArrayList<String>();
-    final ArrayList<String> listItems = new ArrayList<String>();
+
+    private ArrayList<String> listItems;
 
     int  year, month, day;
 
@@ -116,9 +121,23 @@ public class FoodSupplyWindow extends Fragment {
             }
         });
 
+        Button openOrder = (Button) view.findViewById(R.id.buttonOrder);
 
 
-        ListView listView = (ListView) view.findViewById(R.id.listIngredients);
+        openOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CustomDialog cdd = new CustomDialog(getActivity());
+                cdd.show();
+            }
+        });
+
+
+
+
+        listItems = DataForAll.getAllIngredients(ini,fin);
+
+        final ListView listView = (ListView) view.findViewById(R.id.listIngredients);
 
 
         final ArrayAdapter<String> adapterIngredients = new ArrayAdapter<String>(getActivity(),
@@ -133,6 +152,48 @@ public class FoodSupplyWindow extends Fragment {
         to = (Spinner) view.findViewById(R.id.spinnerTo);
         from.setAdapter(adapter);
         to.setAdapter(adapter);
+
+        from.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> parentView,
+                                       View selectedItemView, int position, long id) {
+                // Object item = parentView.getItemAtPosition(position);
+
+                ini = from.getSelectedItemPosition();
+                listItems.clear();
+                listItems = DataForAll.getAllIngredients(ini,fin);
+                ArrayAdapter<String> adapterIngredients = new ArrayAdapter<String>(getActivity(),
+                        android.R.layout.simple_list_item_1, listItems);
+                listView.setAdapter(adapterIngredients);
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {// do nothing
+            }
+
+        });
+
+        to.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> parentView,
+                                       View selectedItemView, int position, long id) {
+                // Object item = parentView.getItemAtPosition(position);
+
+                fin = to.getSelectedItemPosition();
+                listItems.clear();
+                listItems = DataForAll.getAllIngredients(ini,fin);
+                ArrayAdapter<String> adapterIngredients = new ArrayAdapter<String>(getActivity(),
+                        android.R.layout.simple_list_item_1, listItems);
+                listView.setAdapter(adapterIngredients);
+
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {// do nothing
+            }
+
+        });
+
+
+
         return view;
     }
 
