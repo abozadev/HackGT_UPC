@@ -59,8 +59,8 @@ public class AdapterEat extends ArrayAdapter<Eat> {
         timeThirdDish.setText(eatingMeal.getThirdDish().getTime().toString() + " min");
 
         setImage(row, imageFirstDish, eatingMeal.getFirstDish().getImg());
-        setImage(row, imageSecondDish, eatingMeal.getSecondDish().getImg());
-        setImage(row, imageThirdDish, eatingMeal.getThirdDish().getImg());
+        //setImage(row, imageSecondDish, eatingMeal.getSecondDish().getImg());
+        //setImage(row, imageThirdDish, eatingMeal.getThirdDish().getImg());
 
         Button infoFirstDish = (Button) row.findViewById(R.id.infoFirstDish);
         Button infoSecondDish = (Button) row.findViewById(R.id.infoSecondDish);

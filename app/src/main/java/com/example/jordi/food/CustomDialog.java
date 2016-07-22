@@ -6,7 +6,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -46,6 +49,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
         day = calendar.get(Calendar.DAY_OF_MONTH);
         String curDate = new String(day+"/"+month+"/"+year);
         spinnerArray.add(curDate);
+
         for (int i = 0; i < 6; ++i) {
             try {
                 curDate = getNextDate(curDate);
@@ -56,6 +60,26 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
             }
         }
 
+        Spinner sOrder = (Spinner) findViewById(R.id.spinnerOrderDate);
+
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                c.getApplicationContext(), android.R.layout.simple_spinner_item, spinnerArray);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sOrder.setAdapter(adapter);
+
+        sOrder.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> parentView,
+                                       View selectedItemView, int position, long id) {
+                // Object item = parentView.getItemAtPosition(position);
+                adapter.notifyDataSetChanged();
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {// do nothing
+            }
+
+        });
     }
 
     @Override

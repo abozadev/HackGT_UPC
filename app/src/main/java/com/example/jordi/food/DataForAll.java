@@ -81,7 +81,7 @@ public class DataForAll {
         // Breakfast
         ArrayList<Ingredient> ingredientsMilk = new ArrayList<>();
         ingredientsMilk.add(new Ingredient("milk", 0.5));
-        Dish milk = new Dish("Milk", "@drawable/llet", 0.2, ingredientsMilk, "");
+        Dish milk = new Dish("Milk", "@drawable/milk_cookies", 0.2, ingredientsMilk, "");
 
         ArrayList<Ingredient> ingredientsCookies = new ArrayList<>();
         ingredientsCookies.add(new Ingredient("cookies", 0.1));
@@ -99,7 +99,7 @@ public class DataForAll {
         ArrayList<Ingredient> ingredientsSoup = new ArrayList<>();
         ingredientsSoup.add(new Ingredient("caldo de pollastre", 1));
         ingredientsSoup.add(new Ingredient("galets", 0.2));
-        Dish soup = new Dish("Soup", "@drawable/sopa", 10, ingredientsSoup, "Boil during 10 min");
+        Dish soup = new Dish("Soup", "@drawable/soup", 10, ingredientsSoup, "Boil during 10 min");
 
         ArrayList<Ingredient> ingredientsCousCous = new ArrayList<>();
         ingredientsCousCous.add(new Ingredient("cous-cous", 0.4));
@@ -117,7 +117,7 @@ public class DataForAll {
         ingredientsHamburguer.add(new Ingredient("hamburguesa", 0.2));
         ingredientsHamburguer.add(new Ingredient("ceba", 0.2));
         ingredientsHamburguer.add(new Ingredient("ous", 0.2));
-        Dish hamburguer = new Dish("Hamburguer", "@drawable/hamburguesa", 20, ingredientsHamburguer, "Cook all the food");
+        Dish hamburguer = new Dish("Hamburguer", "@drawable/hamburger_meal", 20, ingredientsHamburguer, "Cook all the food");
 
         ArrayList<Ingredient> ingredientsOmelet = new ArrayList<>();
         ingredientsOmelet.add(new Ingredient("patates", 0.4));
@@ -145,13 +145,13 @@ public class DataForAll {
         day1.setLunch(new Eat(DataForAll.lunch, soup, hamburguer, apple));
         day2.setLunch(new Eat(DataForAll.lunch, fideua, hamburguer, yogurt));
         day3.setLunch(new Eat(DataForAll.lunch, soup, omelet, yogurt));
-        day4.setLunch(new Eat(DataForAll.lunch, fideua, omelet, apple));
+        day4.setLunch(new Eat(DataForAll.lunch, fideua, hamburguer, apple));
         day5.setLunch(new Eat(DataForAll.lunch, soup, omelet, apple));
         day6.setLunch(new Eat(DataForAll.lunch, cousCous, hamburguer, yogurt));
         day7.setLunch(new Eat(DataForAll.lunch, fideua, omelet, apple));
 
         day1.setDinner(new Eat(DataForAll.dinner, cousCous, omelet, yogurt));
-        day2.setDinner(new Eat(DataForAll.dinner, soup, omelet, yogurt));
+        day2.setDinner(new Eat(DataForAll.dinner, omelet, hamburguer, yogurt));
         day3.setDinner(new Eat(DataForAll.dinner, cousCous, hamburguer, apple));
         day4.setDinner(new Eat(DataForAll.dinner, soup, hamburguer, yogurt));
         day5.setDinner(new Eat(DataForAll.dinner, cousCous, omelet, yogurt));

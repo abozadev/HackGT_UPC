@@ -1,25 +1,35 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.jordi.food.Fragments.IniFragment">
+    tools:context="com.example.jordi.food.Fragments.IniFragment"
+    android:padding="15dp"
+    android:layout_gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center">
 
         <TextView android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textSize="20dp"
+            android:textSize="25dp"
             android:textStyle="bold"
-            android:text="Welcome to Food Planner" />
+            android:text="Welcome to Food Planner"/>
 
-        <ImageView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/food_planner"/>
+            android:text="@string/welcome_message"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textSize="17dp"/>
+
+
 
     </LinearLayout>
 

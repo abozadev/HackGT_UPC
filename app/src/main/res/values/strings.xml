@@ -8,6 +8,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_info">Info</string>
 
+
+    <string name="welcome_message">Here you can plan all your meals of the week based on you preferences and time for cooking</string>
     <!-- Shared Preferences -->
 
     <string-array name="times">
