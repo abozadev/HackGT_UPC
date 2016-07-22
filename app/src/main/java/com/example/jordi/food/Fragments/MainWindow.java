@@ -97,7 +97,10 @@ public class MainWindow extends Fragment {
     private void initVariables (View view) {
         textDate = (TextView) view.findViewById(R.id.date);
         textDate.setText(createDate());
-        listEat = DataForAll.weeklySchedule.get(Calendar.getInstance().get(Calendar.DAY_OF_YEAR)+offsetDay);
+        listEat = new ArrayList<>();
+        listEat.add(DataForAll.weeklySchedule.get(Calendar.getInstance().get(Calendar.DAY_OF_YEAR)+offsetDay).getBreakfast());
+        listEat.add(DataForAll.weeklySchedule.get(Calendar.getInstance().get(Calendar.DAY_OF_YEAR)+offsetDay).getLunch());
+        listEat.add(DataForAll.weeklySchedule.get(Calendar.getInstance().get(Calendar.DAY_OF_YEAR)+offsetDay).getDinner());
         Log.i("length listEat", "" + listEat.size());
         adapterEat = new AdapterEat(this.getActivity(), listEat);
         listView = (ListView) view.findViewById(R.id.listMainMenu);

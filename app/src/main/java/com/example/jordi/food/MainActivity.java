@@ -15,15 +15,19 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.jordi.food.Adapters.AdapterDailySchedule;
 import com.example.jordi.food.Fragments.FoodSupplyWindow;
+import com.example.jordi.food.Fragments.IniFragment;
 import com.example.jordi.food.Fragments.MainWindow;
 import com.example.jordi.food.Fragments.ProfileFragment;
+import com.example.jordi.food.Fragments.Schedule;
 
 import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity implements MainWindow.OnFragmentInteractionListener,
-    ProfileFragment.OnFragmentInteractionListener, FoodSupplyWindow.OnFragmentInteractionListener {
+    ProfileFragment.OnFragmentInteractionListener, Schedule.OnFragmentInteractionListener,
+    FoodSupplyWindow.OnFragmentInteractionListener, IniFragment.OnFragmentInteractionListener {
 
     private DrawerLayout mDrawerLayout;
     private ArrayList<String> arrayMenu = new ArrayList<String>();
@@ -54,6 +58,7 @@ public class MainActivity extends ActionBarActivity implements MainWindow.OnFrag
                 fragment = new MainWindow(1); // tomorrow
                 break;
             case 3:
+                fragment = new Schedule();
                 break;
             case 4:
                 fragment = new FoodSupplyWindow();
@@ -109,6 +114,20 @@ public class MainActivity extends ActionBarActivity implements MainWindow.OnFrag
         listViewMenu.setAdapter(adapterMenu);
 
         DataForAll.createData();
+
+        fragment = new IniFragment();
+        firstFragment();
+    }
+
+    private void firstFragment () {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if (fragment == null) {
+            fragmentTransaction.add(R.id.content_frame, fragment);
+        } else {
+            fragmentTransaction.replace(R.id.content_frame, fragment);
+        }
+        fragmentTransaction.commit();
     }
 
     @Override

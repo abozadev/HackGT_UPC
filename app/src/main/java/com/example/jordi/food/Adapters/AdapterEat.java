@@ -1,5 +1,6 @@
 package com.example.jordi.food.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -27,14 +28,14 @@ public class AdapterEat extends ArrayAdapter<Eat> {
     Context context;
 
     public AdapterEat(Context context, List<Eat> data) {
-        super(context, R.layout.layout_eat, data);
+        super(context, R.layout.layout_eat_new, data);
         this.context = context;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View row = inflater.inflate(R.layout.layout_eat, parent, false);
+        View row = inflater.inflate(R.layout.layout_eat_new, parent, false);
         final Eat eatingMeal = getItem(position);
 
         ImageView imageFirstDish = (ImageView) row.findViewById(R.id.imageFirstDish);
@@ -45,11 +46,17 @@ public class AdapterEat extends ArrayAdapter<Eat> {
         TextView textFirstDish = (TextView) row.findViewById(R.id.textFirstDish);
         TextView textSecondDish = (TextView) row.findViewById(R.id.textSecondDish);
         TextView textThirdDish = (TextView) row.findViewById(R.id.textThirdDish);
+        TextView timeFirstDish = (TextView) row.findViewById(R.id.timeFirstDish);
+        TextView timeSecondDish = (TextView) row.findViewById(R.id.timeSecondDish);
+        TextView timeThirdDish = (TextView) row.findViewById(R.id.timeThirdDish);
 
         textEatingTime.setText(eatingMeal.getEatingTime());
         textFirstDish.setText(eatingMeal.getFirstDish().getName());
         textSecondDish.setText(eatingMeal.getSecondDish().getName());
         textThirdDish.setText(eatingMeal.getThirdDish().getName());
+        timeFirstDish.setText(eatingMeal.getFirstDish().getTime().toString() + " min");
+        timeSecondDish.setText(eatingMeal.getSecondDish().getTime().toString() + " min");
+        timeThirdDish.setText(eatingMeal.getThirdDish().getTime().toString() + " min");
 
         setImage(row, imageFirstDish, eatingMeal.getFirstDish().getImg());
         setImage(row, imageSecondDish, eatingMeal.getSecondDish().getImg());
@@ -86,6 +93,7 @@ public class AdapterEat extends ArrayAdapter<Eat> {
                     default:
                         break;
                 }
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });

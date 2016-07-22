@@ -116,7 +116,7 @@ public class FoodSupplyWindow extends Fragment {
             }
         });
 
-        
+
 
         ListView listView = (ListView) view.findViewById(R.id.listIngredients);
 
